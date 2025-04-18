@@ -1,12 +1,11 @@
 # Shell Scripting Mini-Project Documentation
-
-This document details the process of completing a shell scripting mini-project on an Ubuntu server, as per the lecturer's instructions. The goal is to create a shell script that automates the creation of directories and users. Each step includes commands, outputs, and screenshot placeholders for verification.
+This document details the process of completing a shell scripting mini-project on an Ubuntu server. The goal is to create a shell script that automates the creation of directories and users.
 
 ---
 
 ## Shell Script Code
 
-The script provided by the lecturer:
+Below is example code for the shell script that creates three directories and three users.
 
 ```bash
 #!/bin/bash
@@ -24,6 +23,15 @@ sudo useradd user3
 
 ---
 
+### Task for you
+1. Create a folder on a ubuntu server and name it shell-scripting.
+2. Using the `vim` editor, create a file called `my_first_shell_script.sh`.
+3. Put the shell script code above into the new file.
+4. Save the file.
+5. Use `cd` command to change into the `shell-scripting` directory.
+6. Use `ls -latr` command to confirm that the file is indeed creeated. 
+
+
 ## Step 1: Create a Folder on an Ubuntu Server
 
 **Task:** Create a folder named `shell-scripting`.
@@ -36,23 +44,17 @@ mkdir shell-scripting
 
 **Output:**
 
-```bash
-ls
-# Output: shell-scripting
-```
-
-**Screenshot:**  
-![Screenshot: Terminal showing the mkdir shell-scripting command and ls output](screenshots/step1.png)
+![Screenshot: Terminal showing the mkdir shell-scripting command and ls output](img/step1.png)
 
 ---
 
-## Step 2: Create a File Using the Vim Editor
+## Step 2: Create a File Using the Vim Edi addtor
 
 **Task:** Use the Vim editor to create a file called `my_first_shell_script.sh`.
 
 **Command:**
 
-```bash
+```bashg
 vim my_first_shell_script.sh
 ```
 
@@ -61,8 +63,7 @@ vim my_first_shell_script.sh
 - Vim opens in command mode.
 - Press `i` to enter insert mode.
 
-**Screenshot:**  
-![Screenshot: Terminal showing the vim my_first_shell_script.sh command and Vim editor open](screenshots/step2.png)
+![Screenshot: Terminal showing the vim my_first_shell_script.sh command and Vim editor open](img/step2.png)
 
 ---
 
@@ -87,7 +88,7 @@ sudo useradd user3
 ```
 
 **Screenshot:**  
-![Screenshot: Vim editor showing the shell script code before saving](screenshots/step3.png)
+![Screenshot: Vim editor showing the shell script code before saving](img/step3.png)
 
 ---
 
@@ -101,7 +102,7 @@ sudo useradd user3
 - Type `:wq` and press `Enter` to save and exit.
 
 **Screenshot:**  
-![Screenshot: Vim editor showing the :wq command at the bottom before exiting](screenshots/step4.png)
+![Screenshot: Vim editor showing the :wq command at the bottom before exiting](img/step4.png)
 
 ---
 
@@ -115,15 +116,8 @@ sudo useradd user3
 cd shell-scripting
 ```
 
-**Output:**
-
-```bash
-pwd
-# Output: /home/user/shell-scripting
-```
-
 **Screenshot:**  
-![Screenshot: Terminal showing the cd shell-scripting command and pwd output](screenshots/step5.png)
+![Screenshot: Terminal showing the cd shell-scripting command and pwd output](img/step5.png)
 
 ---
 
@@ -136,25 +130,24 @@ pwd
 ```bash
 ls -latr
 ```
-
-**Output:**
-
-```bash
-total 12
-drwxr-xr-x 2 root root 4096 Feb 11 14:36 ..
--rw-r--r-- 1 root root  149 Feb 11 14:35 my_first_shell_script.sh
-drwxr-xr-x 2 root root 4096 Feb 11 14:36 .
-```
-
-**Observation:**  
-Permissions are `rw-r--r--` (no execute permission yet).
-
 **Screenshot:**  
-![Screenshot: Terminal showing the ls -latr output with the file and its permissions](screenshots/step6.png)
+![Screenshot: Terminal showing the ls -latr output with the file and its permissions](img/step66.png)
 
 ---
 
-## Step 7: Add Execute Permission for the Owner
+If the script is run without making it executable, it will not run and will throw up a permission denied error. See screenshot below.
+
+![Screenshot: Terminal showing the permission denied error when trying to run the script](img/step6.1.png)
+
+---
+
+### Task for you 2: 
+1. Add the execute permission for the `owner` to be able to execute the shell script.
+2. Run the shell script.
+3. Evaluate and ensure that 3 folders are created
+4. Evaluate and ensure that 3 users are created on the linux server
+
+## Step 1: Add Execute Permission for the Owner
 
 **Task:** Make the script executable.
 
@@ -168,15 +161,14 @@ chmod u+x my_first_shell_script.sh
 
 ```bash
 ls -l
-# Output: -rwxr--r-- 1 root root 149 Feb 11 14:35 my_first_shell_script.sh
 ```
 
 **Screenshot:**  
-![Screenshot: Terminal showing the chmod u+x command and updated ls -l output](screenshots/step7.png)
+![Screenshot: Terminal showing the chmod u+x command and updated ls -l output](img/Task2_step1.png)
 
 ---
 
-## Step 8: Run the Shell Script
+## Step 2: Run the Shell Script
 
 **Task:** Execute the script.
 
@@ -189,11 +181,11 @@ sudo ./my_first_shell_script.sh
 **Note:** `sudo` is required for user creation.
 
 **Screenshot:**  
-![Screenshot: Terminal showing the sudo ./my_first_shell_script.sh command execution](screenshots/step8.png)
+![Screenshot: Terminal showing the sudo ./my_first_shell_script.sh command execution](img/Task2_step2.png)
 
 ---
 
-## Step 9: Verify Folders Were Created
+## Step 3: Verify Folders Were Created
 
 **Task:** Check for the folders.
 
@@ -203,36 +195,41 @@ sudo ./my_first_shell_script.sh
 ls
 ```
 
-**Output:**
-
-```bash
-Folder1  Folder2  Folder3  my_first_shell_script.sh
-```
-
 **Screenshot:**  
-![Screenshot: Terminal showing the ls output with the created folders](screenshots/step9.png)
+![Screenshot: Terminal showing the ls output with the created folders](img/Task2_step3.png)
 
 ---
 
-## Step 10: Verify Users Were Created
+## Step 4: Verify Users Were Created
 
 **Task:** Confirm the users exist.
 
 **Command:**
 
 ```bash
-cat /etc/passwd | grep user
-```
-
-**Output:**
-
-```bash
-user1:x:1001:1001::/home/user1:/bin/bash
-user2:x:1002:1002::/home/user2:/bin/bash
-user3:x:1003:1003::/home/user3:/bin/bash
+id user1 && id user2 && id user3
 ```
 
 **Screenshot:**  
-![Screenshot: Terminal showing the cat /etc/passwd | grep user output with the created users](screenshots/step10.png)
+![Screenshot: Terminal showing the id user1 && id user2 && id user3 output with the created users](img/Task2_step4.png)
 
 ---
+### Shebang
+The shebang `#!/bin/bash` at the top of the script indicates that the script should be run using the Bash shell. This is important for ensuring that the script runs correctly, as different shells may have different syntax and features.
+
+### Variable Declaration and initialization
+Variables are essential in shell scripting for storing data that can be reused throughout the script. They are declared using the syntax `variable_name=value` and can be accessed using `$variable_name`. For example:
+
+```bash
+#!/bin/bash
+# Assigning a value to a variable
+name="John"
+```
+## Retrieving value from a variable
+Echoing the value of a variable is done using the `echo` command followed by the variable name prefixed with `$`. For example:
+
+```bash
+echo $name
+```
+**screenshot:**
+![Screenshot: Terminal showing the echo command output with the variable value](img/echoing.png)
