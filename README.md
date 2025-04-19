@@ -233,3 +233,25 @@ echo $name
 ```
 **screenshot:**
 ![Screenshot: Terminal showing the echo command output with the variable value](img/echoing.png)
+
+
+### Adding comments in Bash Scripts
+Comments explain what the script does and are ignored by the shell when executing the script. They start with a `#` symbol.
+
+## Type of comments
+1. **Single-line comments:** Start with `#` and continue to the end of the line.
+```bash
+   # This is a single-line comment in Bash 
+   echo "Hello, you are learning Bash Scripting on DAREY.IO!" # This is also a comment, following a command
+```
+
+2. **Multi-line comments:** This anothe way to create comments in bash scripts. Each line starts with `#`. It's used adding brief descriptions of the script's functionality or purpose. For example:
+```bash
+   # This is another way to create comments in bash scripts.
+   # Each line starts with a #.
+   # It's used for adding brief descriptions of the script's functionality or purpose.
+   ```
+
+   ### Conclusion
+This mini-project demonstrates the process of creating a shell script to automate directory and user creation on an Ubuntu server. The steps include creating a folder, writing a script using Vim, making the script executable, and verifying the creation of directories and users. This project serves as a foundational exercise in shell scripting and Linux command-line usage.
+
